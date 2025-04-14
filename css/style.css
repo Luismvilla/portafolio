@@ -14,6 +14,7 @@ html {
     --color-header: #38e;
     --color-oscuro: #000;
     --color-morado: rgb(88, 17, 121);
+    --header-claro: #62b2b4;
 }
 
 body {
@@ -24,7 +25,12 @@ body {
 }
 
 header {
-    background: linear-gradient(2deg, rgba(237, 237, 255, 1) -60%, rgba(5, 108, 186, 1) 100%);
+    position: sticky;
+    top: 0;
+    z-index: 3000;
+    animation: header-movement both ease;
+    animation-timeline: scroll();
+    animation-range: 10px 100px;
 }
 h2 {
     text-align: center;
@@ -395,7 +401,7 @@ footer {
     flex-direction: column;
     width: 100%;
     background: #ededff;
-    background: linear-gradient(2deg, rgba(237, 237, 255, 1) -60%, rgba(5, 108, 186, 1) 100%);
+    background: linear-gradient(to right, #62b2b4, #4a90a4);
     padding-top: .5rem;
     padding-inline: 0.6rem;
     padding-bottom: 0.2rem;
@@ -565,3 +571,16 @@ li:hover {
 
 /* Escritorios grandes o monitores grandes */
 @media (min-width: 1536px) { }
+
+/*--------------------------------Animaciones ---------------*/
+
+@keyframes header-movement {
+    from {
+        background: linear-gradient(to right, #62b2b4, #4a90a4);
+        padding-block: 0;
+    }
+    to {
+        padding: 0;
+        background-color: #10163266;
+    }
+}
